@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pattern Printing</title>
+  </head>
+  <body>
+    <div id="pattern">Your Pattern</div>
+    <script>
+      function patternCode(luckyNumber) {
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let pattern = "";
+        for (let i = 1; i <= luckyNumber; i++) {
+          let line = "";
+          for (let j = 1; j <= luckyNumber - i; j++) {
+            line += `&nbsp;`;
+            line += `&nbsp;`;
+          }
+          for (let k = 1; k <= i; k++) {
+            line += k * 2 - 1;
+            line += `&nbsp;`;
+          }
+          for (let l = 1; l <= i; l++) {
+            if (l != 1) {
+              line += alphabet[l - 2];
+              line += `&nbsp;`;
+            }
+          }
+          pattern += line + "<br>";
+        }
+
+        for (let i = luckyNumber - 1; i >= 1; i--) {
+          let line = "";
+          for (let j = 1; j <= luckyNumber - i; j++) {
+            line += `&nbsp;`;
+            line += `&nbsp;`;
+          }
+          for (let k = 1; k <= i; k++) {
+            line += k * 2 - 1;
+            line += `&nbsp;`;
+          }
+          for (let l = 1; l <= i; l++) {
+            if (l != 1) {
+              line += alphabet[l - 2];
+              line += `&nbsp;`;
+            }
+          }
+          pattern += line + "<br>";
+        }
+
+        document.getElementById("pattern").innerHTML = pattern;
+      }
+
+      // Prompt the user for input
+
+      const luckyNumber = parseInt(prompt("Please enter your lucky number:"));
+      patternCode(luckyNumber);
+    </script>
+  </body>
+</html>

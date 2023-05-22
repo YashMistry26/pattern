@@ -1,0 +1,25 @@
+<script>
+    function fibonacciSeries(limit) {
+  let fibSeries = [0, 1]; // Initialize the Fibonacci series with the first two numbers
+
+  while (fibSeries[fibSeries.length - 1] < limit) {
+    const nextNumber = fibSeries[fibSeries.length - 1] + fibSeries[fibSeries.length - 2];
+    
+    if (nextNumber < limit) {
+      fibSeries.push(nextNumber); 
+    } else {
+      break;
+    }
+  }
+
+  return fibSeries;
+}
+
+// Prompt the user for input
+const userInput = parseInt(prompt("Enter a number:"));
+
+// Generate and print the Fibonacci series
+const fibonacciSeriesResult = fibonacciSeries(userInput);
+console.log(fibonacciSeriesResult.join(", "));
+
+</script>
